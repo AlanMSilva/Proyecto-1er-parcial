@@ -1,0 +1,2 @@
+Donde se inicia es en el de index.html que esta en la carpeta de login. xd
+y para registrar a usuarios ingresas con el usuario: admin y contraseña: admin
