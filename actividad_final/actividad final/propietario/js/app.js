@@ -6,6 +6,7 @@ let bdD = [];
 var deudaTT=0;
 var deudaTTT=0;
 var id=0;
+let deudaTotal;
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 document.getElementById("btnRegistrar").addEventListener("click",()=>{
 
@@ -33,21 +34,10 @@ document.getElementById("btnRestore").addEventListener("click",()=>{
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 document.getElementById("btnDeudas").addEventListener("click",()=>{
     let texto = "";
-    var i = 0;
     bdD.forEach(element => {
-        let id = element.id;
-        if(i != id){
-            i = 0;
-        } 
-        const deudaT= parseInt(element.dineroT);
-        const deudaD = parseInt(element.dinero);
-        deudaTT += deudaD + deudaT;
-        
         texto+=`<div class="card">
-        <p> Nombre: ${element.nombre} Deuda: ${deudaTT} pesos</p>
+        <p> Nombre: ${element.nombre} Deuda: ${element.deudaTotal} pesos</p>
         `
-
-        i++;
     });//pos no funciona bien xD F C H A L E
     document.getElementById('detalles').innerHTML=texto;
     texto = innerHTML="";
@@ -61,7 +51,6 @@ document.getElementById("btnCobrar").addEventListener("click",()=>{
     let dinero=0;
     let nombre;
     bd.datos.forEach(element => {
-        id=i;
         dinero=document.getElementById(`persona${i}`).value;  
         dineroT=document.getElementById("txtCobrarTodos").value;
         
@@ -83,7 +72,11 @@ document.getElementById("btnCobrar").addEventListener("click",()=>{
             `
         }
         nombre = element.nombre;
-        const deudores = new Deudores(id,nombre,dinero,dineroT);
+        const deudaT= parseInt(dineroT);
+        const deudaD = parseInt(dinero);
+        deudaTT += deudaD + deudaT;
+        deudaTotal = deudaTT;
+        const deudores = new Deudores(nombre,dinero,dineroT,deudaTotal);
         bdD.push(deudores);
         i++; 
     });   

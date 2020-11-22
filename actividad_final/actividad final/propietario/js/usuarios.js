@@ -7,10 +7,10 @@ class Usuario{
     }
 }
 class Deudores{
-    constructor(id,nombre,dinero,dineroT){
-        this.id=id
+    constructor(nombre,dinero,dineroT,deudaTotal){
         this.nombre=nombre;
         this.dinero=dinero;
         this.dineroT=dineroT;
+        this.deudaTotal=deudaTotal;
     }
 }

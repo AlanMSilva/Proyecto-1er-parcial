@@ -4,9 +4,7 @@ const close = document.getElementById('close');
 let bdD = JSON.parse(localStorage.getItem("Deudas"));
 
 let username = JSON.parse(localStorage.getItem('user'));
-let nombresito =username[0].usuario;
 
-console.log(nombresito)
 if(username != null){
     usernav.innerHTML=' <a href="#" id="close" class="nav-item nav-link active">'+ username[0].usuario +'</a>'
 }else{
@@ -17,12 +15,13 @@ close.addEventListener('click',function(){
 });
 
 document.getElementById("btnDeudasD").addEventListener("click",()=>{
+    let nombresito =username[0].usuario;
     let texto = document.getElementById("detallesD");
     bdD.forEach(element => {
         let nombre = element.nombre;
         if(nombresito == nombre){
             texto.innerHTML=`<div class="card">
-            <p> Nombre: ${nombre} Deuda: ${element.deudaTotal   }</p>
+            <p> Nombre: ${nombre} Deuda: ${element.deudaTotal}</p>
             `
         }
     });
